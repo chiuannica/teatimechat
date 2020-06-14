@@ -122,6 +122,9 @@ function handleMessage(sender_psid, message) {
             entityChosen = name;
         }
     })
+    callSendAPI(sender_psid, 'Entity: ' + entity);
+
+    /*
     if (entityChosen === "") { // if none confident, default msg
         callSendAPI(sender_psid, 'I see');
     } else {
@@ -137,6 +140,7 @@ function handleMessage(sender_psid, message) {
     }
 
 
+    */
 
 
 }
