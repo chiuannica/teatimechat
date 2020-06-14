@@ -65,52 +65,6 @@ let getWebhook = (req, res) => {
     }
 };
 
-// Handles messages events
-// function handleMessage(sender_psid, received_message) {
-//     let response;
-//
-//     // Check if the message contains text
-//     if (received_message.text) {
-//
-//         // Create the payload for a basic text message
-//         response = {
-//             "text": `You sent the message: "${received_message.text}". Now send me an image!`
-//         }
-//     } else if (received_message.attachments) {
-//
-//     // Gets the URL of the message attachment
-//     let attachment_url = received_message.attachments[0].payload.url;
-//         response = {
-//             "attachment": {
-//                 "type": "template",
-//                 "payload": {
-//                     "template_type": "generic",
-//                     "elements": [{
-//                         "title": "Is this the right picture?",
-//                         "subtitle": "Tap a button to answer.",
-//                         "image_url": attachment_url,
-//                         "buttons": [
-//                             {
-//                                 "type": "postback",
-//                                 "title": "Yes!",
-//                                 "payload": "yes",
-//                             },
-//                             {
-//                                 "type": "postback",
-//                                 "title": "No!",
-//                                 "payload": "no",
-//                             }
-//                         ],
-//                     }]
-//                 }
-//             }
-//         }
-//
-// }
-//
-// // Sends the response message
-//     callSendAPI(sender_psid, response);
-// }
 
 // Handles messaging_postbacks events
 function handlePostback(sender_psid, received_postback) {
@@ -159,11 +113,28 @@ function firstEntity(nlp, name) {
   
 function handleMessage(sender_psid, message) {
     // check greeting is here and is confident
-    const greeting = firstEntity(message.nlp, 'greetings');
-    if (greeting && greeting.confidence > 0.8) {
-        callSendAPI(sender_psid, 'Hi there!');
-    } else { 
-        callSendAPI(sender_psid, 'Default!');
+    let entitiesArr = [ "greetings", "thanks", "bye"];
+    let entityChosen = "";
+    // check confidence
+    entitiesArr.forEach((name) => {
+        let entity = firstEntity(message.nlp, name)
+        if (entity && entity.confidence > 0.8) {
+            entityChosen = name;
+        }
+    })
+    if (entityChosen === "") { // if none confident, default msg
+        callSendAPI(sender_psid, 'I see');
+    } else {
+        if (entityChosen === "greetings") {
+            callSendAPI(sender_psid, 'Hi! How are you?');
+        }
+        if (entityChosen === "thanks") {
+            callSendAPI(sender_psid, 'You\'re welcome?');
+        }
+        if (entityChosen === "bye") {
+            callSendAPI(sender_psid, 'Goodbye');
+        }
+
     }
 }
 let callSendAPIWithTemplate = (sender_psid) => {
