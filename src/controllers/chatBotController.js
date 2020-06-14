@@ -115,7 +115,7 @@ function handleMessage(sender_psid, message) {
     // check greeting is here and is confident
     let entitiesArr = [ 
         "greetings", "thanks", 
-        "bye", "reminder", 
+        "bye", 
         "expression_of_feeling,", "creative_work",
         "local_search_query", "agenda_entry"
     ];
@@ -138,9 +138,6 @@ function handleMessage(sender_psid, message) {
         }
         if (entityChosen === "bye") {
             callSendAPI(sender_psid, 'Goodbye');
-        }
-        if (entityChosen === "reminder") {
-            callSendAPI(sender_psid, 'That is a reminder?');
         }
         if (entityChosen === "expression_of_feeling") {
             callSendAPI(sender_psid, 'That is an expression');
