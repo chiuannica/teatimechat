@@ -113,7 +113,7 @@ function firstEntity(nlp, name) {
   
 function handleMessage(sender_psid, message) {
     // check greeting is here and is confident
-    let entitiesArr = [ "greetings", "thanks", "bye"];
+    let entitiesArr = [ "greetings", "thanks", "bye", "reminder", "sentiment"];
     let entityChosen = "";
     // check confidence
     entitiesArr.forEach((name) => {
@@ -122,9 +122,6 @@ function handleMessage(sender_psid, message) {
             entityChosen = name;
         }
     })
-    callSendAPI(sender_psid, entity);
-
-    /*
     if (entityChosen === "") { // if none confident, default msg
         callSendAPI(sender_psid, 'I see');
     } else {
@@ -137,10 +134,15 @@ function handleMessage(sender_psid, message) {
         if (entityChosen === "bye") {
             callSendAPI(sender_psid, 'Goodbye');
         }
+        if (entityChosen === "reminder") {
+            callSendAPI(sender_psid, 'Oh really?');
+        }
+        if (entityChosen === "sentiment") {
+            callSendAPI(sender_psid, 'That is nice');
+        }
     }
 
 
-    */
 
 
 }
