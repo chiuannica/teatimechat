@@ -129,13 +129,14 @@ function handleMessage(sender_psid, message) {
             callSendAPI(sender_psid, 'Hi! How are you?');
         }
         if (entityChosen === "thanks") {
-            callSendAPI(sender_psid, 'You\'re welcome?');
+            callSendAPI(sender_psid, 'You\'re welcome!');
         }
         if (entityChosen === "bye") {
             callSendAPI(sender_psid, 'Goodbye');
         }
-
     }
+    let intent = message.nlp.entities.intent.value;
+    console.log(intent);
 }
 let callSendAPIWithTemplate = (sender_psid) => {
     // document fb message template
