@@ -12,6 +12,7 @@ viewEngine(app);
 //use body-parser to post data
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use("/public", express.static(__dirname + "/public"));
 
 // init all web routes
 initWebRoute(app);
