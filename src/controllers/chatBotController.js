@@ -115,11 +115,14 @@ function handleMessage(sender_psid, message) {
     // check greeting is here and is confident
     let entitiesArr = [ "greetings", "thanks", "bye"];
     let entityChosen = "";
+
+    let intent = "";
     // check confidence
     entitiesArr.forEach((name) => {
         let entity = firstEntity(message.nlp, name)
         if (entity && entity.confidence > 0.8) {
             entityChosen = name;
+            intent = entity.intent[0].value;
         }
     })
     if (entityChosen === "") { // if none confident, default msg
@@ -134,9 +137,12 @@ function handleMessage(sender_psid, message) {
         if (entityChosen === "bye") {
             callSendAPI(sender_psid, 'Goodbye');
         }
+        callSendAPI(sender_psid, intent);
     }
-    let intent = message.nlp.entities.intent.value;
-    console.log(intent);
+
+
+
+
 }
 let callSendAPIWithTemplate = (sender_psid) => {
     // document fb message template
