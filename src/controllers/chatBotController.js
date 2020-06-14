@@ -123,7 +123,7 @@ function handleMessage(sender_psid, message) {
     // check confidence
     entitiesArr.forEach((name) => {
         let entity = firstEntity(message.nlp, name)
-        if (entity && entity.confidence > 0.75) {
+        if (entity && entity.confidence > 0.85) {
             entityChosen = name;
         }
     })
