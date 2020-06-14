@@ -113,21 +113,26 @@ function firstEntity(nlp, name) {
   
 function handleMessage(sender_psid, message) {
     // check greeting is here and is confident
-    let entitiesArr = [ "greetings", "thanks", "bye", "reminder", "sentiment"];
+    let entitiesArr = [ 
+        "greetings", "thanks", 
+        "bye", "reminder", 
+        "expression_of_feeling,", "creative_work",
+        "local_search_query", "agenda_entry"
+    ];
     let entityChosen = "";
     // check confidence
     entitiesArr.forEach((name) => {
         let entity = firstEntity(message.nlp, name)
         if (entity //&& entity.confidence > 0.65) {
         ){    
-        entityChosen = name;
+            entityChosen = name;
         }
     })
     if (entityChosen === "") { // if none confident, default msg
-        callSendAPI(sender_psid, 'That is interesting.');
+        callSendAPI(sender_psid, 'Default.');
     } else {
         if (entityChosen === "greetings") {
-            callSendAPI(sender_psid, 'Hi! How are you?');
+            callSendAPI(sender_psid, 'That is a greeting');
         }
         if (entityChosen === "thanks") {
             callSendAPI(sender_psid, 'You\'re welcome!');
@@ -136,10 +141,10 @@ function handleMessage(sender_psid, message) {
             callSendAPI(sender_psid, 'Goodbye');
         }
         if (entityChosen === "reminder") {
-            callSendAPI(sender_psid, 'Oh really?');
+            callSendAPI(sender_psid, 'That is a reminder?');
         }
-        if (entityChosen === "sentiment") {
-            callSendAPI(sender_psid, 'That is nice');
+        if (entityChosen === "expression_of_feeling") {
+            callSendAPI(sender_psid, 'That is an expression');
         }
     }
 
