@@ -123,8 +123,7 @@ function handleMessage(sender_psid, message) {
     // check confidence
     entitiesArr.forEach((name) => {
         let entity = firstEntity(message.nlp, name)
-        if (entity //&& entity.confidence > 0.65) {
-        ){    
+        if (entity && entity.confidence > 0.75) {
             entityChosen = name;
         }
     })
@@ -145,6 +144,15 @@ function handleMessage(sender_psid, message) {
         }
         if (entityChosen === "expression_of_feeling") {
             callSendAPI(sender_psid, 'That is an expression');
+        }
+        if (entityChosen === "creative_work") {
+            callSendAPI(sender_psid, 'That is a creative work');
+        }
+        if (entityChosen === "local_search_query") {
+            callSendAPI(sender_psid, 'That is a local place');
+        }
+        if (entityChosen === "agenda_entry") {
+            callSendAPI(sender_psid, 'That is an agenda item');
         }
     }
 
