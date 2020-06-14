@@ -153,49 +153,19 @@ function callSendAPI(sender_psid, response) {
         }
     });
 }
-
 function firstEntity(nlp, name) {
     return nlp && nlp.entities && nlp.entities[name] && nlp.entities[name][0];
 }
-
+  
 function handleMessage(sender_psid, message) {
-    //handle message for react, like press like button
-    // id like button: sticker_id 369239263222822
-
-    if( message && message.attachments && message.attachments[0].payload){
-        callSendAPI(sender_psid, "Thank you for watching my video !!!");
-        callSendAPIWithTemplate(sender_psid);
-        return;
-    }
-
-    let entitiesArr = [ "greetings", "thanks", "bye" ];
-    let entityChosen = "";
-    entitiesArr.forEach((name) => {
-        let entity = firstEntity(message.nlp, name);
-        if (entity && entity.confidence > 0.8) {
-            entityChosen = name;
-        }
-    });
-
-    if(entityChosen === ""){
-        //default
-        callSendAPI(sender_psid,`The bot is needed more training, try to say "thanks a lot" or "hi" to the bot` );
-    }else{
-       if(entityChosen === "greetings"){
-           //send greetings message
-           callSendAPI(sender_psid,'Hi there! This bot is created by Hary Pham. Watch more videos on HaryPhamDev Channel!');
-       }
-       if(entityChosen === "thanks"){
-           //send thanks message
-           callSendAPI(sender_psid,`You 're welcome!`);
-       }
-        if(entityChosen === "bye"){
-            //send bye message
-            callSendAPI(sender_psid,'bye-bye!');
-        }
+    // check greeting is here and is confident
+    const greeting = firstEntity(message.nlp, 'greetings');
+    if (greeting && greeting.confidence > 0.8) {
+        callSendAPI(sender_psid, 'Hi there!');
+    } else { 
+        callSendAPI(sender_psid, 'Default!');
     }
 }
-
 let callSendAPIWithTemplate = (sender_psid) => {
     // document fb message template
     // https://developers.facebook.com/docs/messenger-platform/send-messages/templates
