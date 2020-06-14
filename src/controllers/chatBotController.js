@@ -118,12 +118,13 @@ function handleMessage(sender_psid, message) {
     // check confidence
     entitiesArr.forEach((name) => {
         let entity = firstEntity(message.nlp, name)
-        if (entity && entity.confidence > 0.65) {
-            entityChosen = name;
+        if (entity //&& entity.confidence > 0.65) {
+        ){    
+        entityChosen = name;
         }
     })
     if (entityChosen === "") { // if none confident, default msg
-        callSendAPI(sender_psid, 'I see');
+        callSendAPI(sender_psid, 'That is interesting.');
     } else {
         if (entityChosen === "greetings") {
             callSendAPI(sender_psid, 'Hi! How are you?');
