@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" type="text/css" href="\public\css\style.css">
+    <script src="https://use.fontawesome.com/ccfd5fd345.js"></script>
 </head>
 <body>
 
@@ -13,7 +14,7 @@
         <img class="tea-girl" src="\public\images\tea-girl.png">
         <h1>Tea Time</h1>
     </section>
-    
+
     <nav id="navbar">
         <div class="nav-container">
             <a href="#home">Home</a>
@@ -25,6 +26,82 @@
 
     <section id="calendar">
         <h2>Calendar</h2>
+        <div class="calendar-grid">
+            <div>
+                <h3>June 2020</h3>
+                <table>
+                    <tr>
+                        <th>Sun</th>
+                        <th>Mon</th>
+                        <th>Tue</th>
+                        <th>Wed</th>
+                        <th>Thu</th>
+                        <th>Fri</th>
+                        <th>Sat</th>
+                    </tr>
+                    <tr>
+                        <td>31</td>
+                        <td>1</td>
+                        <td>2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                        <td>6</td>
+                    </tr><tr>
+                        <td>7</td>
+                        <td class="day-neu">8</td>
+                        <td class="day-pos">9</td>
+                        <td>10</td>
+                        <td class="day-pos">11</td>
+                        <td>12</td>
+                        <td>13</td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>15</td>
+                        <td>16</td>
+                        <td>17</td>
+                        <td>18</td>
+                        <td class="day-pos">19</td>
+                        <td class="day-neu">20</td>
+                    </tr>
+                    <tr>
+                        <td>21</td>
+                        <td>22</td>
+                        <td class="day-neu">23</td>
+                        <td>24</td>
+                        <td>25</td>
+                        <td class="day-neg">26</td>
+                        <td class="day-neu">27</td>
+                    </tr>
+                    <tr>
+                        <td class="day-pos">29</td>
+                        <td>30</td>
+                        <td class="day-pos">1</td>
+                        <td class="day-neg">2</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>5</td>
+                    </tr>
+                </table>
+            </div>
+            <div>
+                <h3>Report</h3>
+                <div class="report">
+                    <h5>Overall Sentiment</h5>
+                    <div id="piechart" class="sentiment-pie-chart"></div>
+                    <h5>Subjects You Mentioned</h5>
+                    <ul>
+                        <li>Shopping</li>
+                        <li>Bubble Tea</li>
+                        <li>Avatar: the last airbender</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+
     </section>
 
     <section id="chat">
@@ -78,6 +155,30 @@
     }
     }
 
+</script>
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+    google.charts.load('current', {'packages':['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+    var data = google.visualization.arrayToDataTable([
+        ['Sentiment', 'Number of Statements'],
+        ['Positive',     2],
+        ['Neutral',     4],
+        ['Negative',     2]
+    ]);
+
+    var options = {
+        title: ''
+    };
+
+    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+    chart.draw(data, options);
+    }
 </script>
 
 </body>

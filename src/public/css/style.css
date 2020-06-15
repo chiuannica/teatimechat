@@ -1,7 +1,9 @@
+
+
 body {
     font-family: Arial, Helvetica, sans-serif;
 }
-h1, h2, a {
+h1, h2, h3, a {
     text-align: center;
     color: #222222;
     text-transform: lowercase;
@@ -24,10 +26,12 @@ nav {
     align-content: center;
 }
 .sticky {
-    position: fixed;
     top: 0;
+    position: sticky;
 }
 nav > a {
+    margin: 5%;
+
 }
 #home {
     padding-top: 10vh;
@@ -37,4 +41,58 @@ nav > a {
     display: block;
     margin-left: auto;
     margin-right: auto;
+}
+#calendar {
+
+}
+.calendar-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 2vh;
+}
+table, th, td {
+    border: 1px solid rgba(34, 34, 34, 0.4);
+    border-collapse: collapse;
+}
+table {
+    width: 100%;
+}
+th {
+    text-transform: lowercase;
+}
+td {
+    text-align: center;
+    width: 10vh;
+    padding-bottom: 2vh;
+    top: 0;
+    padding-top: 1vh;
+    font-size: 36pt;
+    color: rgba(34, 34, 34, 0.4);
+}
+.day-pos {
+    background: rgba(164, 244, 164, 0.5);
+}
+.day-neg {
+    background: rgb(237, 110, 120, 0.5);
+}
+.day-neu {
+    background: rgb(236, 192, 131, 0.5);
+}
+.report {
+    width: 100%;
+    border: 1px solid rgba(34, 34, 34, 0.4);
+    border-collapse: collapse;
+
+    padding: 5%;
+    text-transform: lowercase;
+}
+.sentiment-pie-chart, #piechart {
+    width: 100%;
+}
+.report > h5 {
+    text-align: center;
+    font-size: 12pt;
+}
+.report > ul {
+    margin: 0 auto;
 }
