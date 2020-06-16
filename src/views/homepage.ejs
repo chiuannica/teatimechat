@@ -88,7 +88,9 @@
                 <div class="report">
                     <h5>June 8, 2020</h5>
                     <h5>Overall Sentiment</h5>
-                    <div id="piechart" class="sentiment-pie-chart"></div>
+                    <canvas id="sentiment-pie-chart">
+
+                    </canvas>
                     <h5>Subjects You Mentioned</h5>
                     <ul>
                         <li>Shopping</li>
@@ -154,26 +156,35 @@
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 <script type="text/javascript">
-    google.charts.load('current', {'packages':['corechart']});
-    google.charts.setOnLoadCallback(drawChart);
+    let sentimentChart = document.getElementById("sentiment-pie-chart")
+    let size = 500
+    sentimentChart.width = size
+    sentimentChart.height = size
+    var ctxSenti = sentimentChart.getContext("2d");
 
-    function drawChart() {
-
-    var data = google.visualization.arrayToDataTable([
-        ['Sentiment', 'Number of Statements'],
-        ['Positive',     2],
-        ['Neutral',     4],
-        ['Negative',     2]
-    ]);
-
-    var options = {
-        title: ''
-    };
-
-    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
-    chart.draw(data, options);
+    function drawPieSlice(ctx, centerX, centerY, radius, startAngle, endAngle, color) {
+        ctx.fillStyle = color
+        ctx.beginPath()
+        ctx.moveTo(centerX, centerY)
+        ctx.arc(centerX, centerY, radius, startAngle, endAngle)
+        ctx.closePath()
+        ctx.fill()
     }
+    function calcAngle(percent) {
+        let startAngle = (percent / 100) * 2 * Math.PI
+        return startAngle
+    }
+
+    let sentimentPercents = [50, 25, 25]
+    const sentimentPieSlice = sentimentPercents.map(percent => calcAngle(percent))
+
+    let endPos = sentimentPieSlice[0]
+    let endNeu = endPos + sentimentPieSlice[1]
+    let endNeg = endNeu + sentimentPieSlice[2] 
+
+    drawPieSlice(ctxSenti, size/2, size/2, size/2, 0, endPos, '#a4f4a480')
+    drawPieSlice(ctxSenti, size/2, size/2, size/2, endPos, endNeu, '#ecc08380')
+    drawPieSlice(ctxSenti, size/2, size/2, size/2, endNeu, endNeg, '#ed6e7880')
 </script>
 
 </body>

@@ -74,13 +74,13 @@ td {
     color: rgba(34, 34, 34, 0.4);
 }
 .day-pos {
-    background: rgba(164, 244, 164, 0.5);
+    background: #a4f4a480;
 }
 .day-neg {
-    background: rgb(237, 110, 120, 0.5);
+    background: #ed6e7880;
 }
 .day-neu {
-    background: rgb(236, 192, 131, 0.5);
+    background: #ecc08380;
 }
 .report {
     width: 100%;
@@ -90,9 +90,11 @@ td {
     box-shadow: 0 1pt 12pt rgba(0, 0, 0, .15);
 }
 
-.sentiment-pie-chart, #piechart {
-    width: 100%;
+#sentiment-pie-chart {
+    width: 80%;
+    margin: 0 10%;
 }
+
 .report > h5 {
     text-align: center;
     font-size: 12pt;
