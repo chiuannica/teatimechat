@@ -148,9 +148,8 @@ function handleMessage(sender_psid, message) {
         if (entityChosen === "agenda_entry") {
             possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
         }
+        callSendAPI(sender_psid, possibleRs[Math.random()*3])
     }
-    response = possbleRs[Math.random()*3]
-    callSendAPI(sender_psid, response)
 }
 let callSendAPIWithTemplate = (sender_psid) => {
     // document fb message template
