@@ -128,10 +128,10 @@ function handleMessage(sender_psid, message) {
         }
     })
     var response = 'default';
-    var bbshark = ['hi', 'ho'];
+    var bbshark = ['hi', 'ho', 'hey', 'hello'];
     if (entityChosen != "") { 
         if (entityChosen === "greetings") {
-            callSendAPI(sender_psid, bbshark[0])
+            callSendAPI(sender_psid, bbshark[Math.random()*3])
         }
         if (entityChosen === "thanks") {
             var possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
@@ -149,8 +149,6 @@ function handleMessage(sender_psid, message) {
             var possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
         }
     }
-    response = possbleRs[Math.random()*3]
-    callSendAPI(sender_psid, response)
 }
 let callSendAPIWithTemplate = (sender_psid) => {
     // document fb message template
