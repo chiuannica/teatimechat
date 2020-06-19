@@ -123,34 +123,36 @@ function handleMessage(sender_psid, message) {
     // check confidence
     entitiesArr.forEach((name) => {
         let entity = firstEntity(message.nlp, name)
-        if (entity && entity.confidence > 0.80) {
+        if (entity && entity.confidence > 0.85) {
             entityChosen = name;
         }
     })
     if (entityChosen === "") { // if none confident, default msg
-        callSendAPI(sender_psid, 'My favorite show is We Bare Bears.');
+        callSendAPI(sender_psid, 'Default.');
     } else {
         if (entityChosen === "greetings") {
-            var posResponses = ["Hi", "Hello", "Hey!", "Hi"]
+            callSendAPI(sender_psid, 'That is a greeting');
         }
         if (entityChosen === "thanks") {
-            var posResponses = ["You're welcome", "No problem", "You're welcome", "No problem"]
+            callSendAPI(sender_psid, 'You\'re welcome!');
         }
         if (entityChosen === "bye") {
-            var posResponses = ["Bye!", "Goodbye", "Bye-bye", "See you soon"]
+            callSendAPI(sender_psid, 'Goodbye');
         }
         if (entityChosen === "expression_of_feeling") {
-            var posResponses = ["I see", "I understand", "Really?", "I see"]
+            callSendAPI(sender_psid, 'That is an expression');
         }
         if (entityChosen === "creative_work") {
-            var posResponses = ["That is cool", "I see", "That is interesting", "Tell me more about that"]
+            callSendAPI(sender_psid, 'That is a creative work');
         }
         if (entityChosen === "agenda_entry") {
-            var posResponses = ["That sounds fun", "Cool!", "Really?", "That is exciting"]
+            callSendAPI(sender_psid, 'That is an agenda item');
         }
-        response = posResponses[Math.random() * 3]
-        callSendAPI(sender_psid, response);
     }
+
+
+
+
 }
 let callSendAPIWithTemplate = (sender_psid) => {
     // document fb message template
