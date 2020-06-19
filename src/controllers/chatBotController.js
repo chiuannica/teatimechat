@@ -117,7 +117,7 @@ function handleMessage(sender_psid, message) {
         "greetings", "thanks", 
         "bye", 
         "expression_of_feeling,", "creative_work",
-        "local_search_query", "agenda_entry"
+         "agenda_entry"
     ];
     let entityChosen = "";
     // check confidence
@@ -127,32 +127,28 @@ function handleMessage(sender_psid, message) {
             entityChosen = name;
         }
     })
-    if (entityChosen === "") { // if none confident, default msg
-        callSendAPI(sender_psid, 'Default.');
-    } else {
+    var response = 'default';
+    if (entityChosen != "") { 
         if (entityChosen === "greetings") {
-            callSendAPI(sender_psid, 'That is a greeting');
+            response = "test"
         }
         if (entityChosen === "thanks") {
-            callSendAPI(sender_psid, 'You\'re welcome!');
+            response = "test"
         }
         if (entityChosen === "bye") {
-            callSendAPI(sender_psid, 'Goodbye');
+            response = "test"
         }
         if (entityChosen === "expression_of_feeling") {
-            callSendAPI(sender_psid, 'That is an expression');
+            response = "test"
         }
         if (entityChosen === "creative_work") {
-            callSendAPI(sender_psid, 'That is a creative work');
-        }
-        if (entityChosen === "local_search_query") {
-            callSendAPI(sender_psid, 'That is a local place');
+            response = "test"
         }
         if (entityChosen === "agenda_entry") {
-            callSendAPI(sender_psid, 'That is an agenda item');
+            response = "test"
         }
     }
-
+    callSendAPI(sender_psid, response)
 }
 let callSendAPIWithTemplate = (sender_psid) => {
     // document fb message template
