@@ -11,8 +11,8 @@ h1, h2, h3, a {
 
 }
 section {
-    margin: 0 7.5%;
-    height: 90vh;
+    margin-top: 10vh;
+    margin-bottom: 5vh;
 }
 nav {
     display: block;
@@ -37,10 +37,8 @@ nav {
 }
 nav > a {
     margin: 5%;
-
 }
 #home {
-    padding-top: 10vh;
     height: 80vh;
 }
 .tea-girl {
@@ -49,27 +47,31 @@ nav > a {
     margin-right: auto;
 }
 #calendar {
-
+    width: 80%;
+    margin: 0 10%;
 }
-.calendar-grid {
+.calendar-report-grid {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    grid-gap: 2vh;
+}
+.calendar-report-grid > div {
+    margin-top: 10vh;
+    width: 100%;
 }
 table, th, td {
     border: 0px solid rgba(34, 34, 34, 0.4);
     border-collapse: collapse;
 }
 table {
-    width: 100%;
+    width: 90%;
+    margin: 0 5%;
     box-shadow: 0 1pt 12pt rgba(0, 0, 0, .15);
 }
 th {
     text-transform: lowercase;
 }
-td {
+td {  
     text-align: center;
-    padding: 2vh;
     font-size: 24pt;
     color: rgba(34, 34, 34, 0.4);
 }
@@ -83,11 +85,12 @@ td {
     background: #ecc08380;
 }
 .report {
-    width: 100%;
-    padding: 10%;
-    border-collapse: collapse;
     text-transform: lowercase;
     box-shadow: 0 1pt 12pt rgba(0, 0, 0, .15);
+    padding: 5%;
+    padding-bottom: 20%;
+}
+.report > ul {
 }
 
 #sentiment-pie-chart {
@@ -102,3 +105,61 @@ td {
 .report > ul {
     margin: 0 auto;
 }
+#journal {
+
+}
+.journal {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 80%;
+    margin: 0 10%;
+}
+.journal-page {
+    width: 100%;
+    min-height: 80vh;
+    box-shadow: 0 1pt 12pt rgba(0, 0, 0, .15);
+}
+.journal-writing {
+    margin: 5%;
+    margin-bottom: 20%;
+}
+.dropbtn {
+    background-color: #47bbffbb;
+    color: #ffffffee;
+    padding: 10%;
+    width: 30vh;
+    border: none;
+    font-size: 1em;
+}
+.dropdown:hover .dropbtn {
+    background-color: #1FADFF;
+} 
+.dropdown {
+    margin: 0 10%;
+    padding: 10%;
+    position: relative;
+    font-size: 1em;
+}
+.dropdown-content {
+    display: none;
+    width: 30vh;
+    position: absolute;
+    z-index: 1;
+    box-shadow: 0 1pt 12pt rgba(0, 0, 0, .15);
+}
+.dropdown-content a {
+    color: #222222bb;
+    padding: 5% 10%;
+    text-decoration: none;
+    display: block;
+    background-color: #D6F0FFbb;
+
+}
+.dropdown-content a:hover {
+    background-color: #a4f4a480;
+}
+  
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+  

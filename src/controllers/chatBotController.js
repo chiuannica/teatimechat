@@ -130,27 +130,28 @@ function handleMessage(sender_psid, message) {
     if (entityChosen === "") { // if none confident, default msg
         callSendAPI(sender_psid, 'Default.');
     } else {
+        let response = "";
+        let responseIndex = Math.random() * 3;
+        let posResponses = [];
         if (entityChosen === "greetings") {
-            callSendAPI(sender_psid, 'That is a greeting');
+            posResponses = ["Hi", "Hello", "Hey!", "Hi"]
         }
         if (entityChosen === "thanks") {
-            callSendAPI(sender_psid, 'You\'re welcome!');
+            posResponses = ["You're welcome", "No problem", "You're welcome", "No problem"]
         }
         if (entityChosen === "bye") {
-            callSendAPI(sender_psid, 'Goodbye');
+            posResponses = ["Bye!", "Goodbye", "Bye-bye", "See you soon"]
         }
         if (entityChosen === "expression_of_feeling") {
-            callSendAPI(sender_psid, 'That is an expression');
+            posResponses = ["I see", "I understand", "Really?", "I see"]
         }
         if (entityChosen === "creative_work") {
-            callSendAPI(sender_psid, 'That is a creative work');
-        }
-        if (entityChosen === "local_search_query") {
-            callSendAPI(sender_psid, 'That is a local place');
+            posResponses = ["That is cool", "I see", "That is interesting", "Tell me more about that"]
         }
         if (entityChosen === "agenda_entry") {
-            callSendAPI(sender_psid, 'That is an agenda item');
+            posResponses = ["That sounds fun", "Cool!", "Really?", "That is exciting"]
         }
+        callSendAPI(sender_psid, posResponses[responseIndex]);
     }
 
 
