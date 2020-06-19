@@ -145,13 +145,13 @@ function handleMessage(sender_psid, message) {
         if (entityChosen === "creative_work") {
             callSendAPI(sender_psid, 'That is a creative work');
         }
+        if (entityChosen === "local_search_query") {
+            callSendAPI(sender_psid, 'That is a local place');
+        }
         if (entityChosen === "agenda_entry") {
             callSendAPI(sender_psid, 'That is an agenda item');
         }
     }
-
-
-
 
 }
 let callSendAPIWithTemplate = (sender_psid) => {
