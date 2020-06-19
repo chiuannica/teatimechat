@@ -130,8 +130,7 @@ function handleMessage(sender_psid, message) {
     var response = 'default';
     if (entityChosen != "") { 
         if (entityChosen === "greetings") {
-            var possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
-            callSendAPI(sender_psid, response)
+            callSendAPI(sender_psid, "banana")
         }
         if (entityChosen === "thanks") {
             var possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
