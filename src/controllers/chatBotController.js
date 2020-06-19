@@ -132,7 +132,7 @@ function handleMessage(sender_psid, message) {
     } else {
         let response = "";
         let responseIndex = Math.random() * 3;
-        let posResponses = [];
+        var posResponses
         if (entityChosen === "greetings") {
             posResponses = ["Hi", "Hello", "Hey!", "Hi"]
         }
@@ -151,12 +151,9 @@ function handleMessage(sender_psid, message) {
         if (entityChosen === "agenda_entry") {
             posResponses = ["That sounds fun", "Cool!", "Really?", "That is exciting"]
         }
-        callSendAPI(sender_psid, posResponses[responseIndex]);
+        response = posResponses[responseIndex]
+        callSendAPI(sender_psid, response);
     }
-
-
-
-
 }
 let callSendAPIWithTemplate = (sender_psid) => {
     // document fb message template
