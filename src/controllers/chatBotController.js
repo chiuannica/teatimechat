@@ -130,24 +130,25 @@ function handleMessage(sender_psid, message) {
     var response = 'default';
     if (entityChosen != "") { 
         if (entityChosen === "greetings") {
-            response = "test"
+            var possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
         }
         if (entityChosen === "thanks") {
-            response = "test"
+            var possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
         }
         if (entityChosen === "bye") {
-            response = "test"
+            var possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
         }
         if (entityChosen === "expression_of_feeling") {
-            response = "test"
+            var possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
         }
         if (entityChosen === "creative_work") {
-            response = "test"
+            var possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
         }
         if (entityChosen === "agenda_entry") {
-            response = "test"
+            var possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
         }
     }
+    response = possbleRs[Math.random()*3]
     callSendAPI(sender_psid, response)
 }
 let callSendAPIWithTemplate = (sender_psid) => {
