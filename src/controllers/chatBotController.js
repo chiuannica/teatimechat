@@ -129,23 +129,24 @@ function handleMessage(sender_psid, message) {
     })
     var response = 'default';
     if (entityChosen != "") { 
+        var possibleRs = ["1", "2", "3", "4!"]
         if (entityChosen === "greetings") {
-            var possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
+            possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
         }
         if (entityChosen === "thanks") {
-            var possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
+            possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
         }
         if (entityChosen === "bye") {
-            var possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
+            possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
         }
         if (entityChosen === "expression_of_feeling") {
-            var possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
+            possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
         }
         if (entityChosen === "creative_work") {
-            var possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
+            possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
         }
         if (entityChosen === "agenda_entry") {
-            var possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
+            possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
         }
     }
     response = possbleRs[Math.random()*3]
