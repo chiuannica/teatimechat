@@ -129,37 +129,28 @@ function handleMessage(sender_psid, message) {
     })
     var response = 'default';
     if (entityChosen != "") { 
-        var possibleRs = ["1", "2", "3", "4!"]
         if (entityChosen === "greetings") {
-            possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
-            callSendAPI(sender_psid, possibleRs[Math.random()*3])
+            var possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
+            callSendAPI(sender_psid, response)
         }
         if (entityChosen === "thanks") {
-            possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
-            callSendAPI(sender_psid, possibleRs[Math.random()*3])
-
+            var possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
         }
         if (entityChosen === "bye") {
-            possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
-            callSendAPI(sender_psid, possibleRs[Math.random()*3])
-
+            var possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
         }
         if (entityChosen === "expression_of_feeling") {
-            possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
-            callSendAPI(sender_psid, possibleRs[Math.random()*3])
-
+            var possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
         }
         if (entityChosen === "creative_work") {
-            possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
-            callSendAPI(sender_psid, possibleRs[Math.random()*3])
-
+            var possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
         }
         if (entityChosen === "agenda_entry") {
-            possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
-            callSendAPI(sender_psid, possibleRs[Math.random()*3])
-
+            var possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
         }
     }
+    response = possbleRs[Math.random()*3]
+    callSendAPI(sender_psid, response)
 }
 let callSendAPIWithTemplate = (sender_psid) => {
     // document fb message template
