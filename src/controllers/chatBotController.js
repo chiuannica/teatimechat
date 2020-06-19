@@ -123,35 +123,32 @@ function handleMessage(sender_psid, message) {
     // check confidence
     entitiesArr.forEach((name) => {
         let entity = firstEntity(message.nlp, name)
-        if (entity && entity.confidence > 0.85) {
+        if (entity && entity.confidence > 0.80) {
             entityChosen = name;
         }
     })
     if (entityChosen === "") { // if none confident, default msg
-        callSendAPI(sender_psid, 'Default.');
+        callSendAPI(sender_psid, 'My favorite show is We Bare Bears.');
     } else {
-        let response = "";
-        let responseIndex = Math.random() * 3;
-        var posResponses
         if (entityChosen === "greetings") {
-            posResponses = ["Hi", "Hello", "Hey!", "Hi"]
+            var posResponses = ["Hi", "Hello", "Hey!", "Hi"]
         }
         if (entityChosen === "thanks") {
-            posResponses = ["You're welcome", "No problem", "You're welcome", "No problem"]
+            var posResponses = ["You're welcome", "No problem", "You're welcome", "No problem"]
         }
         if (entityChosen === "bye") {
-            posResponses = ["Bye!", "Goodbye", "Bye-bye", "See you soon"]
+            var posResponses = ["Bye!", "Goodbye", "Bye-bye", "See you soon"]
         }
         if (entityChosen === "expression_of_feeling") {
-            posResponses = ["I see", "I understand", "Really?", "I see"]
+            var posResponses = ["I see", "I understand", "Really?", "I see"]
         }
         if (entityChosen === "creative_work") {
-            posResponses = ["That is cool", "I see", "That is interesting", "Tell me more about that"]
+            var posResponses = ["That is cool", "I see", "That is interesting", "Tell me more about that"]
         }
         if (entityChosen === "agenda_entry") {
-            posResponses = ["That sounds fun", "Cool!", "Really?", "That is exciting"]
+            var posResponses = ["That sounds fun", "Cool!", "Really?", "That is exciting"]
         }
-        response = posResponses[responseIndex]
+        response = posResponses[Math.random() * 3]
         callSendAPI(sender_psid, response);
     }
 }
