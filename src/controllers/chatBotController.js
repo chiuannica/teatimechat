@@ -128,7 +128,7 @@ function handleMessage(sender_psid, message) {
         }
     })
     var response = 'default';
-    var bbshark = ['hi,' 'ho'];
+    var bbshark = ['hi', 'ho'];
     if (entityChosen != "") { 
         if (entityChosen === "greetings") {
             callSendAPI(sender_psid, bbshark[0])
