@@ -129,22 +129,22 @@ function handleMessage(sender_psid, message) {
     })
     if (entityChosen != "") { 
         if (entityChosen === "greetings") {
-            callSendAPI(sender_psid, "yoyoyo")
+            callSendAPI(sender_psid, "Hi")
         }
         if (entityChosen === "thanks") {
-            var possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
+            callSendAPI(sender_psid, "You're welcome")
         }
         if (entityChosen === "bye") {
-            var possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
+            callSendAPI(sender_psid, "Talk to you soon")
         }
         if (entityChosen === "expression_of_feeling") {
-            var possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
+            callSendAPI(sender_psid, "I see")
         }
         if (entityChosen === "creative_work") {
-            var possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
+            callSendAPI(sender_psid, "That is interesting")
         }
         if (entityChosen === "agenda_entry") {
-            var possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
+            callSendAPI(sender_psid, "That sounds like fun")
         }
     }
 }
