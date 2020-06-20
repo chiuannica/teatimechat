@@ -11,40 +11,29 @@ h1, h2, h3, a {
 
 }
 section {
-    margin-top: 10vh;
-    margin-bottom: 5vh;
+    margin-bottom: 10%;
 }
 nav {
-    display: block;
-    height: 10vh;
-    width: 50%;
-    margin: 0 25%;
-}
-.nav-container {
-    display: flex;
-    justify-content: space-around;
-    align-content: center;
-}
-.nav-container > a {
-    border: 0px solid rgba(34, 34, 34, 0.4);
-    background: #222222;
-    color: #fff;
-    padding: 1% 5%;
-}
-.sticky {
+    width: 9%;
+    margin: 0.5%;
     top: 0;
     position: sticky;
+    box-shadow: 0 1pt 12pt rgba(0, 0, 0, .15);
 }
-nav > a {
-    margin: 5%;
+.nav-container {
+    display: grid;
+    grid-template-rows: 3fr 1fr 1fr;
+    grid-gap: 2%;
+}
+.nav-container > a, img {
+    color: #222222;
+    margin: 0 auto;
 }
 #home {
     height: 80vh;
 }
 .tea-girl {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    height: 10vh;
 }
 #calendar {
     width: 80%;
@@ -116,18 +105,20 @@ td {
 }
 .journal-page {
     width: 100%;
-    min-height: 80vh;
     box-shadow: 0 1pt 12pt rgba(0, 0, 0, .15);
 }
 .journal-writing {
     margin: 5%;
     margin-bottom: 20%;
 }
+#sentiment-pie-chart-2 {
+    width: 100%;
+}
 .dropbtn {
     background-color: #47bbffbb;
     color: #ffffffee;
     padding: 10%;
-    width: 30vh;
+    width: 100%;
     border: none;
     font-size: 1em;
 }
@@ -135,14 +126,12 @@ td {
     background-color: #1FADFF;
 } 
 .dropdown {
-    margin: 0 10%;
-    padding: 10%;
     position: relative;
     font-size: 1em;
 }
 .dropdown-content {
     display: none;
-    width: 30vh;
+    width: 100%;
     position: absolute;
     z-index: 1;
     box-shadow: 0 1pt 12pt rgba(0, 0, 0, .15);

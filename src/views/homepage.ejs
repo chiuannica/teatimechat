@@ -9,14 +9,10 @@
     <script src="https://use.fontawesome.com/ccfd5fd345.js"></script>
 </head>
 <body>
-
-    <section id="home">
-        <img class="tea-girl" src="\public\images\tea-girl.png">
-        <h1>Tea Time</h1>
-    </section>
-
     <nav id="navbar">
         <div class="nav-container">
+            <img class="tea-girl" src="\public\images\tea-girl.png">
+
             <a href="#calendar">Calendar</a>
             <a href="#journal">Journal</a>
         </div>
@@ -122,7 +118,8 @@
             </div>
             <div class="journal-page">
                 <div class="journal-writing">
-                    <canvas id="sentiment-pie-chart">
+                    <h4>overall sentiment for June 2020</h4>
+                    <canvas id="sentiment-pie-chart-2">
 
                     </canvas>
                 </div>
@@ -138,75 +135,12 @@
      page_id="101078018321989"
      theme_color="#0084ff">
 </div>
-<script>
-    window.fbAsyncInit = function() {
-        FB.init({
-            xfbml            : true,
-            version          : 'v6.0'
-        });
-    };
 
-    (function(d, s, id) {
-        var js, fjs = d.getElementsByTagName(s)[0];
-        if (d.getElementById(id)) return;
-        js = d.createElement(s); js.id = id;
-        js.src = 'https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js';
-        fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-    
-</script>
-<script>
-    window.onscroll = function() {myFunction()};
-
-    // Get the navbar
-    var navbar = document.getElementById("navbar");
-
-    // Get the offset position of the navbar
-    var sticky = navbar.offsetTop;
-
-    // Add the sticky class to the navbar when you reach its scroll position. Remove "sticky" when you leave the scroll position
-    function myFunction() {
-    if (window.pageYOffset >= sticky) {
-        navbar.classList.add("sticky")
-    } else {
-        navbar.classList.remove("sticky");
-    }
-    }
-
-</script>
 
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-    let sentimentChart = document.getElementById("sentiment-pie-chart")
-    let size = 500
-    sentimentChart.width = size
-    sentimentChart.height = size
-    var ctxSenti = sentimentChart.getContext("2d");
+<script type="text/javascript" src="./public/js/home.js"></script>
+<script type="text/javascript" src="./public/js/messenger.js"></script>
 
-    function drawPieSlice(ctx, centerX, centerY, radius, startAngle, endAngle, color) {
-        ctx.fillStyle = color
-        ctx.beginPath()
-        ctx.moveTo(centerX, centerY)
-        ctx.arc(centerX, centerY, radius, startAngle, endAngle)
-        ctx.closePath()
-        ctx.fill()
-    }
-    function calcAngle(percent) {
-        let startAngle = (percent / 100) * 2 * Math.PI
-        return startAngle
-    }
-
-    let sentimentPercents = [50, 25, 25]
-    const sentimentPieSlice = sentimentPercents.map(percent => calcAngle(percent))
-
-    let endPos = sentimentPieSlice[0]
-    let endNeu = endPos + sentimentPieSlice[1]
-    let endNeg = endNeu + sentimentPieSlice[2] 
-
-    drawPieSlice(ctxSenti, size/2, size/2, size/2, 0, endPos, '#a4f4a480')
-    drawPieSlice(ctxSenti, size/2, size/2, size/2, endPos, endNeu, '#ecc08380')
-    drawPieSlice(ctxSenti, size/2, size/2, size/2, endNeu, endNeg, '#ed6e7880')
-</script>
 
 </body>
 </html>
