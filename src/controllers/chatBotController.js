@@ -127,11 +127,8 @@ function handleMessage(sender_psid, message) {
             entityChosen = name;
         }
     })
-    var response = 'default';
-    var bbshark = ['hi', 'ho', 'hey', 'hello'];
     if (entityChosen != "") { 
         if (entityChosen === "greetings") {
-            alert(Math.floor(Math.random() * 3))
             callSendAPI(sender_psid, "yoyoyo")
         }
         if (entityChosen === "thanks") {

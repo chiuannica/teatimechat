@@ -1,7 +1,7 @@
-let sentimentPercents = [50, 25, 25]
+let sentimentPercents = [55, 22, 23]
 makePie("sentiment-pie-chart", sentimentPercents)
 
-let sentimentPercents2 = [50, 25, 25]
+let sentimentPercents2 = [30, 30, 40]
 makePie("sentiment-pie-chart-2", sentimentPercents2)
 
 
