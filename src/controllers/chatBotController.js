@@ -131,7 +131,7 @@ function handleMessage(sender_psid, message) {
     var bbshark = ['hi', 'ho', 'hey', 'hello'];
     if (entityChosen != "") { 
         if (entityChosen === "greetings") {
-            callSendAPI(sender_psid, bbshark[Math.random()*3])
+            callSendAPI(sender_psid, Math.floor(Math.random() * 3))
         }
         if (entityChosen === "thanks") {
             var possibleRs = ["Hi", "Hello", "Hi", "Hey!"]
