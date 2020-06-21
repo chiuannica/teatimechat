@@ -62,13 +62,13 @@ td {
     padding: 2%;
     color: rgba(34, 34, 34, 0.4);
 }
-.day-pos {
+.pos {
     background: #a4f4a480;
 }
-.day-neg {
+.neg {
     background: #ed6e7880;
 }
-.day-neu {
+.neu {
     background: #ecc08380;
 }
 .report {
@@ -106,52 +106,31 @@ td {
     box-shadow: 0 1pt 12pt rgba(0, 0, 0, .15);
 }
 .journal-writing {
+    display: block;
+    margin: auto;
     text-align: center;
-    padding: 5%;
-    margin-bottom: 10%;
-}
-#sentiment-pie-chart-2 {
-    width: 50%;
-    margin: 25%;
-}
-.dropbtn {
-    background-color: #47bbffbb;
-    color: #ffffffee;
     padding: 10%;
-    width: 80%;
-    border: none;
-    font-size: 1em;
 }
-.dropdown:hover .dropbtn {
-    background-color: #1FADFF;
-} 
-.dropdown {
-    position: relative;
-    font-size: 1em;
+.journal-buttons {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    padding: 10%;
 }
-.dropdown-content {
-    display: none;
-    width: 80%;
-    margin: 10%;
-    margin-top: 0;
-    position: absolute;
-    z-index: 1;
-    box-shadow: 0 1pt 12pt rgba(0, 0, 0, .15);
+.journal-buttons > a {
+    margin-bottom: 5%;
+    margin-left: 10%;
+    margin-right: 10%;
+    padding: 5% 2%;
+    background: #0084ffda;
+    color: #fff;
+    border-radius: 0.5em;
 }
-.dropdown-content a {
-    color: #222222bb;
-    padding: 5% 10%;
-    text-decoration: none;
-    display: block;
-    background-color: #D6F0FFbb;
+.journal-buttons > a:hover {
+    background: #0084ff;
+}
 
-}
-.dropdown-content a:hover {
-    background-color: #a4f4a480;
-}
-  
-.dropdown:hover .dropdown-content {
-    display: block;
+#sentiment-pie-chart-2 {
+    width: 80%;
 }
 @media only screen and (max-width: 768px) {
     .calendar-report-grid {

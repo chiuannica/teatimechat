@@ -42,10 +42,10 @@
                         <td>6</td>
                     </tr><tr>
                         <td>7</td>
-                        <td class="day-neu">8</td>
-                        <td class="day-pos">9</td>
+                        <td class="day">8</td>
+                        <td class="day">9</td>
                         <td>10</td>
-                        <td class="day-pos">11</td>
+                        <td class="day">11</td>
                         <td>12</td>
                         <td>13</td>
                     </tr>
@@ -55,23 +55,23 @@
                         <td>16</td>
                         <td>17</td>
                         <td>18</td>
-                        <td class="day-pos">19</td>
-                        <td class="day-neu">20</td>
+                        <td class="day">19</td>
+                        <td class="day">20</td>
                     </tr>
                     <tr>
                         <td>21</td>
                         <td>22</td>
-                        <td class="day-neu">23</td>
+                        <td class="day">23</td>
                         <td>24</td>
                         <td>25</td>
-                        <td class="day-neg">26</td>
-                        <td class="day-neu">27</td>
+                        <td class="day">26</td>
+                        <td class="day">27</td>
                     </tr>
                     <tr>
-                        <td class="day-pos">29</td>
+                        <td class="day">29</td>
                         <td>30</td>
-                        <td class="day-pos">1</td>
-                        <td class="day-neg">2</td>
+                        <td>1</td>
+                        <td>2</td>
                         <td>3</td>
                         <td>4</td>
                         <td>5</td>
@@ -81,13 +81,13 @@
             <div>
                 <h3>Report</h3>
                 <div class="report">
-                    <h5>June 8, 2020</h5>
+                    <h5><span id="month">June</span> <span id="day">8</span>, 2020</h5>
                     <h5>Overall Sentiment</h5>
                     <canvas id="sentiment-pie-chart">
 
                     </canvas>
                     <h5>Subjects You Mentioned</h5>
-                    <ul>
+                    <ul id="subjects">
                         <li>Shopping</li>
                         <li>Bubble Tea</li>
                         <li>Avatar: the last airbender</li>
@@ -105,19 +105,17 @@
         <div class="journal">
             <div class="journal-page">
                 <div class="journal-writing">
-                    <div class="dropdown">
-                        <button class="dropbtn">select a month</button>
-                        <div class="dropdown-content">
-                          <a href="#journal">April 2020</a>
-                          <a href="#journal">May 2020</a>
-                          <a href="#journal">June 2020</a>
-                        </div>
-                      </div> 
+                    <div class="journal-buttons">
+                        <a onclick="changeToApril2020()" href="#journal">April 2020</a>
+                        <a onclick="changeToMay2020()" href="#journal">May 2020</a>
+                        <a onclick="changeToJune2020()" href="#journal">June 2020</a>
+                    </div>
                 </div>
             </div>
             <div class="journal-page">
                 <div class="journal-writing">
-                    <h4>overall sentiment for June 2020</h4>
+                    <h4 id="journal-title">June 2020</h4>
+                    <h4>Overall Sentiment</h4>
                     <canvas id="sentiment-pie-chart-2">
 
                     </canvas>
