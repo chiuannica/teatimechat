@@ -2,15 +2,15 @@ changeToJune2020("sentiment-pie-chart")
 
 
 let days = [
-    [ 8, [50, 30, 20], ["Bubble Tea", "Fish Cakes", "Brownies"] ],
-    [ 9, [50, 50, 0], ["Bubble Tea", "Fish Cakes", "Brownies"] ],
-    [ 10, [15, 70, 15], ["Bubble Tea", "Fish Cakes", "Brownies"] ],
-    [ 19, [70, 15, 15], ["Bubble Tea", "Fish Cakes", "Brownies"] ],
-    [ 20, [15, 20, 65], ["Bubble Tea", "Fish Cakes", "Brownies"] ],
-    [ 23, [20, 20, 60], ["Bubble Tea", "Fish Cakes", "Brownies"] ],
-    [ 27, [70, 15, 15], ["Bubble Tea", "Fish Cakes", "Brownies"] ],
-    [ 28, [40, 60, 0], ["Bubble Tea", "Fish Cakes", "Brownies"] ],
-    [ 29, [70, 15, 15], ["Bubble Tea", "Fish Cakes", "Brownies"] ]
+    [ 8, [50, 30, 20], ["Bubble Tea", "Fish Cakes", "Brownies"], "June" ],
+    [ 9, [50, 50, 0], ["Masterchef", "Lemon Tarts", "Chicken"], "June"  ],
+    [ 10, [15, 70, 15], ["BTS", "Chicken Nuggets", "Tartar Sauce"], "June"  ],
+    [ 19, [70, 15, 15], ["Coffee", "Ice Cream", "Lobster"], "June"  ],
+    [ 20, [15, 20, 65], ["The Legend of Korra", "Fried Chicken", "Chinatown"], "June"  ],
+    [ 23, [20, 20, 60], ["Avatar The Last Airbender", "Ice Cream", "Netflix"], "June"  ],
+    [ 27, [70, 15, 15], ["Running", "Park", "Dog"], "June"  ],
+    [ 28, [40, 60, 0], ["Bubble Tea", "Scrambled Eggs", "BTS"], "June"  ],
+    [ 29, [70, 15, 15], ["Germany", "Boyfriend", "Chocolate"], "June"  ]
 ]
 
 changeReportChart(days, 0)
@@ -57,24 +57,37 @@ function setCalendar(days) {
                 } else {
                     day.className = "pos"
                 }
-                // THIS IS BROKEN 
-                day.innerHTML = '<a onclick="changeReportChart(days, k)">'+ day.innerHTML +'</a>'
             } 
         }
     }
 }
-function test() {
-    alert(8)
+function reportNext() {
+    let currDay = Number(document.getElementById("day").innerHTML)
+    for (let i = 0; i < days.length; i++) {
+        if (days[i][0] == currDay) {
+            changeReportChart(days, (i+1)%days.length)
+        }
+    }
 }
-
+function reportPrev() {
+    let currDay = Number(document.getElementById("day").innerHTML)
+    
+    for (let i = 0; i < days.length; i++) {
+        if (days[i][0] == currDay) {
+            if (i == 0) {
+                changeReportChart(days, days.length-1)
+            }
+            changeReportChart(days, (i-1)%days.length)
+        }
+    }
+}
 function changeReportChart(days, dayIndex) {
     document.getElementById("day").innerHTML = days[dayIndex][0];
-    document.getElementById("month").innerHTML = "june";
+    document.getElementById("month").innerHTML = days[dayIndex][3];
     makePie("sentiment-pie-chart", days[dayIndex][1]);
     document.getElementsByTagName("li")[0].innerHTML = days[dayIndex][2][0];
     document.getElementsByTagName("li")[1].innerHTML = days[dayIndex][2][1];
     document.getElementsByTagName("li")[2].innerHTML = days[dayIndex][2][2];
-
 }
 function changeToApril2020() {
     percents = [60, 20, 20]

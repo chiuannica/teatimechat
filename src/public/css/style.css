@@ -90,7 +90,23 @@ td {
     font-size: 12pt;
 }
 .report > ul {
-    margin: 0 auto;
+    margin: 10% auto;
+}
+.btn-holder {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.np-btn {
+    font-size: 1.5em;
+    cursor: pointer;
+    border: 0;
+    color: #0084ffda;
+    border-radius: 0.5em;
+    background: 0;
+}
+.np-btn:hover {
+    color: #0084ff;
 }
 #journal {
 
