@@ -13,9 +13,12 @@ function validateUser() {
     if (document.getElementById("user").value == "admin") {
         if (document.getElementById("pass").value == "123abc") {
             window.location.href = '/home'
-        } 
+        } else {
+            wrongPass()
+        }
+    } else {
+        wrongPass()
     }
-    wrongPass()
 }
 function wrongPass() {
     document.getElementById("login-msg").innerHTML = "Invalid login or password. Please try again."
