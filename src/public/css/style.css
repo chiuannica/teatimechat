@@ -10,16 +10,61 @@ h1, h2, h3, a {
     color: #222222;
     text-transform: lowercase;
     text-decoration: none;
-
 }
 section {
     margin-bottom: 10%;
+}
+#login-box {
+    display: grid;
+    grid-template-rows: 2fr 1fr;
+    grid-gap: 4%;
+    margin: 0 35%;
+    padding: 5%;
+    box-shadow: 0 1pt 12pt rgba(0, 0, 0, .15);
+}
+#login-box-grid {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 4%;
+}
+#login-msg {
+    text-align: center;
+}
+input {
+    padding: 5% 2%;
+    width: 100%;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 0.5em;
+    box-sizing: border-box;
+    -webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+    outline: none;
+}
+input:focus, #login-btn:focus{
+    box-shadow: 0 1pt 6pt #0084ffda;
+    border: 0.05em solid #0084ffda;
+}
+   
+#login-btn {
+    border: 0;
+    padding: 5% 2%;
+    background: #0084ffda;
+    color: #fff;
+    border-radius: 0.5em;
+    outline: none;
+}
+#login-btn:hover {
+    background: #0084ff;
 }
 nav {
     top: 0;
     position: sticky;
     box-shadow: 0 1pt 12pt rgba(0, 0, 0, .15);
     z-index: 1000;
+    padding: 0.5%;
 }
 .nav-container {
     display: flex;

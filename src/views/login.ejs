@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tea Time</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="\public\css\style.css">
+    <script src="https://use.fontawesome.com/ccfd5fd345.js"></script>
+</head>
+<body>
+    <section id="login">
+        <h1>Tea Time Chat</h1>
+        <div id="login-box">
+            <div id="login-box-grid">
+                <input id="user" type="text" placeholder="Username"></input>
+                <input id="pass" type="password" placeholder="Password"></input>
+                <button id="login-btn" onclick="validateUser()">Login</button>
+            </div>
+            <p id="login-msg">Welcome to tea time chat.</p>
+        </div>
+    </section>
+</body>
+
+<!-- Load Facebook SDK for JavaScript -->
+<div id="fb-root"></div>
+<!-- Your Chat Plugin code -->
+<div class="fb-customerchat"
+     attribution=setup_tool
+     page_id="101078018321989"
+     theme_color="#0084ff">
+</div>
+
+
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="./public/js/login.js"></script>
+<script type="text/javascript" src="./public/js/messenger.js"></script>
+
+
+</body>
+</html>
