@@ -194,8 +194,19 @@ td {
     width: 80%;
 }
 @media only screen and (max-width: 768px) {
+    #login-box {
+        margin: 0 10%;
+    }
+    #calendar {
+        width: 90%;
+        margin: 0 5%;
+    }
     .calendar-report-grid {
         display: block;
+    }
+    table {
+        width: 100%;
+        margin: 0;
     }
     .journal {
         display: block;
